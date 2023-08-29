@@ -5,7 +5,7 @@ const { authorizeRoles } = require('../Middelwares/authorizeRoles');
 
 // Route pour créer une nouvelle ordonnance
 router.post('/nouvelle', authorizeRoles(['user', 'admin']), async (req, res) => {
-  try {
+  try { 
     const { medecinID, beneficiaireID, listeMedicaments } = req.body;
 
     // Vérifier si le médecin et le bénéficiaire existent
