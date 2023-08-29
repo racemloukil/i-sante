@@ -1,10 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Ordonnance = require('../models/ordonnance');
-const Medcien = require('../models/medecin');
-const Beneficiaire = require('../models/Beneficiaire'); 
-const Medicament = require('../models/médicaments');
-const DemandeAjoutMedicament = require('../models/demandeAjoutMedicament');
 const { authorizeRoles } = require('../Middelwares/authorizeRoles');
 
 // Route pour créer une nouvelle ordonnance

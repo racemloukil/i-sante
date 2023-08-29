@@ -3,6 +3,12 @@ const mongoose = require("mongoose")
 const dotenv = require('dotenv');
 const userRouter = require('./Routes/user.route')
 const adherantRouter = require('./Routes/Adhérant.route')
+const beneficaireRouter = require('./Routes/Beneficaire.route')
+const consultationRouter = require('./Routes/consultation.route')
+const demandeAjoutMedicamentRouter = require('./Routes/demandeAjoutMedicament.route')
+const medecinRouter = require('./Routes/medecin.route')
+const MédicamentsRouter = require('./Routes/médicaments.route')
+const ordonnanceRouter = require('./Routes/ordonnance.route')
 
 dotenv.config()
 const app = express();
@@ -14,18 +20,17 @@ mongoose.set("strictQuery", false);
 const compression = require('compression');
 
 // Connexion à la base données  
-if (process.env.NODE_ENV !== 'test') {
-    mongoose.connect(process.env.DATABASECLOUD, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
-        .then(() => {
-            console.log("Connexion à la base de données réussie");
-        }).catch(err => {
-            console.log('Impossible de se connecter à la base de données', err);
-            process.exit();
-        });
-}
+mongoose.connect(process.env.DATABASECLOUD, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+    .then(() => {
+        console.log("Connexion à la base de données réussie");
+    }).catch(err => {
+        console.log('Impossible de se connecter à la base de données', err);
+        process.exit();
+    });
+
 app.get("/", (req, res) => {
     res.send("Bonjour a tous");
 });
@@ -38,10 +43,11 @@ app.listen(process.env.PORT, () => {
 
 app.use('/api/users', userRouter)
 app.use('/api/adherant', adherantRouter)
-// app.use('/api/beneficaire', beneficaireRouter)
-// app.use('/api/consultation', consultationRouter)
-// app.use('/api/demandeAjoutMedicament', demandeAjoutMedicamentRouter)
-// app.use('/api/medecin', medecinRouter)
-// app.use('/api/médicaments', médicamentsRouter)
-// app.use('/api/ordonnance', ordonnanceRouter)
+
+app.use('/api/demandeAjoutMedicament', demandeAjoutMedicamentRouter)
+app.use('/api/medecin', medecinRouter)
+app.use('/api/consultation', consultationRouter)
+app.use('/api/beneficaire', beneficaireRouter)
+app.use('/api/médicaments', MédicamentsRouter)
+app.use('/api/ordonnance', ordonnanceRouter)
 module.exports = app;

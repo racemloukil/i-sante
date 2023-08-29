@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Adhérant = require('../models/Adhérant');
+const Adhérant = require('../models/adhérant');
 const beneficiaireSchema = new mongoose.Schema({
   AdhérantID: {
     type: mongoose.Schema.Types.ObjectId,

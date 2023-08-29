@@ -93,6 +93,5 @@ router.get('/medicaments/:critere/:valeur', verifyToken, async (req, res) => {
     }
   });
   
-  
-  
+  module.exports = router;  
 

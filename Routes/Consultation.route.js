@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Consultation = require('../models/Consultation');
-const Medecin = require('../models/medecin');
-const beneficiaire = require('../models/Beneficiaire');
+const Consultation = require('../models/consultation');
 const { authorizeRoles } = require('../Middelwares/authorizeRoles');
 const { verifyToken } = require('../Middelwares/verifytoken');
 

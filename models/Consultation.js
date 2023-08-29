@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const Medcien = require('../models/medecin');
-const Beneficiaire = require('../models/Beneficiaire'); 
+const Medcien = require('./medecin');
+const Beneficiaire = require('./beneficiaire'); 
 const consultationSchema = new mongoose.Schema({
     medcienID: {
         type: mongoose.Schema.Types.ObjectId,

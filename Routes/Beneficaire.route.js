@@ -1,5 +1,5 @@
 const express = require('express');
-const Beneficiaire = require('../models/Beneficiaire');
+const Beneficiaire = require('../models/beneficiaire');
 const { authorizeRoles } = require('../Middelwares/authorizeRoles');
 const { verifyToken } = require('../Middelwares/verifytoken');
 

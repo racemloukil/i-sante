@@ -1,21 +1,20 @@
 const mongoose = require('mongoose');
-const Medcien = require('../models/medecin');
-const Beneficiaire = require('../models/Beneficiaire'); 
-const médicaments = require('../models/médicaments'); 
+const Medecin = require('../models/medecin');
+const Beneficiaire = require('../models/beneficiaire');
 const ordonnanceSchema = new mongoose.Schema({
   matricule: {
     type: String,
     unique: true,
     required: true
   },
-  medecin: {
+  medecinID: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Medecin',
+    ref: Medecin,
     required: true
   },
-  beneficiaire: {
+  beneficiaireID: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Beneficiaire',
+    ref: Beneficiaire,
     required: true
   },
   date: {

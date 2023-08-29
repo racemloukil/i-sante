@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const user = require('../models/user');
 const demandeAjoutMedicamentSchema = new mongoose.Schema({
   nomMedicament: {
     type: String,
@@ -15,9 +15,9 @@ const demandeAjoutMedicamentSchema = new mongoose.Schema({
     enum: ['en attente', 'acceptee', 'rejetee'],
     default: 'en attente'
   },
- user: {
+ userID: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', 
+    ref: user, 
     required: true
   }
 }, { timestamps: true });

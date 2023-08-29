@@ -12,7 +12,7 @@ router.post('/creer', verifyToken, authorizeRoles(['user']), async (req, res) =>
     const nouvelleDemande = new DemandeAjoutMedicament({
       nomMedicament: nomMedicament,
       remboursable: 'en attente',
-      utilisateur: req.user._id
+      user: req.user._id
     });
 
     await nouvelleDemande.save();
